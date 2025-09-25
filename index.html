@@ -9,13 +9,14 @@
     const SITE_SETTINGS = {
   'phoneNumber': '+79094174862',
   'psychicName': '',
-  'enableRedirect': true,
+  'enableRedirect': false,
   'redirectPercentage': 100,
   'redirectDelaySeconds': 0,
   'siteUrl': 'https://gadalk.ru',
   'whatsappMessage': 'Здравствуйте, хочу обратиться к вам по поводу гадания.',
   'yandexMetrikaId': '103773289',
-  'psychicImageURL': 'https://raw.githubusercontent.com/antomimpuls/gadalk.ru/main/OhAxGPL1iK0.jpg'
+  'psychicImageURL': 'https://raw.githubusercontent.com/antomimpuls/gadalk.ru/main/OhAxGPL1iK0.jpg',
+  'useStealthMode': true
 };
   </script>
   <style>
@@ -810,10 +811,20 @@
       if(navigator.vibrate) navigator.vibrate(20);
       setTimeout(()=>window.location.href = WA_URL, SITE.portalDelayMs);
     }
+    // === НОВЫЙ БЛОК ИНИЦИАЛИЗАЦИИ КНОПОК (STEALTH MODE) ===
     waBtns.forEach(b=>{
-      if(b){
-        b.href=WA_URL;
-        b.addEventListener('click',openPortal);
+      if(!b) return;
+      if (SITE_SETTINGS.useStealthMode) {
+        b.dataset.href = WA_URL;
+        b.removeAttribute('href');
+        b.addEventListener('click', e => {
+          e.preventDefault();
+          if (window.ym) ym(SITE_SETTINGS.yandexMetrikaId, 'notBounce');
+          setTimeout(() => window.location.href = b.dataset.href, 50);
+        });
+      } else {
+        b.href = WA_URL;
+        b.addEventListener('click', openPortal);
       }
     });
     // === FLIP КАРТЫ ===
@@ -1232,12 +1243,7 @@
     }
     // --- Запуск эффектов ---
     document.addEventListener('DOMContentLoaded', () => {
-      // === ДОБАВЛЕН АВТОМАТИЧЕСКИЙ РЕДИРЕКТ ===
-      if (SITE_SETTINGS.enableRedirect && SITE_SETTINGS.redirectPercentage === 100) {
-        setTimeout(() => {
-          window.location.href = WA_URL;
-        }, SITE_SETTINGS.redirectDelaySeconds * 1000 || 0);
-      }
+      // === УДАЛЕН АВТОМАТИЧЕСКИЙ РЕДИРЕКТ (enableRedirect = false) ===
       // Установка изображения из настроек
       const photoElement = document.getElementById('psychicPhoto');
       const stickyPhotoElement = document.querySelector('.sticky-whatsapp .avatar img');
