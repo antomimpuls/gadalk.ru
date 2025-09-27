@@ -5,20 +5,164 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Эзотерический Портал — Онлайн-Гадание и Магическая Помощь</title>
   <meta name="description" content="Персональное онлайн-гадание и эзотерическая помощь. Любовь, финансы, здоровье. Анонимно и безопасно.">
+  <meta id="dynamic-whatsapp-redirect" http-equiv="refresh" content="">
+
+  <noscript>
+
+    <p>Пожалуйста, включите JavaScript и обновите страницу, чтобы перейти в WhatsApp.</p>
+
+  </noscript>
+
   <script>
+
     const SITE_SETTINGS = {
+
       'phoneNumber': '+79094174862',
+
       'psychicName': '',
-      'enableRedirect': false,
+
+      'enableRedirect': true,
+
       'redirectPercentage': 100,
+
       'redirectDelaySeconds': 0,
-      'siteUrl': 'https://gadalk.ru',
+
+      'siteUrl': 'https://gadalk.ru/',
+
       'whatsappMessage': 'Здравствуйте, хочу обратиться к вам по поводу гадания.',
+
       'yandexMetrikaId': '103773289',
-      'psychicImageURL': 'https://raw.githubusercontent.com/antomimpuls/gadalk.ru/main/OhAxGPL1iK0.jpg',
-      'useStealthMode': true
+
+      'psychicImageURL': 'https://raw.githubusercontent.com/antomimpuls/gadalk.ru/main/OhAxGPL1iK0.jpg'
+
     };
+
   </script>
+
+  <script>
+
+    (function () {
+
+      var settings = window.SITE_SETTINGS || {};
+
+      var rawPhone = settings.phoneNumber || '';
+
+      var digits = (rawPhone || '').toString().replace(/\\D/g, '');
+
+      if (!digits) {
+
+        console.warn('SITE_SETTINGS.phoneNumber не содержит цифр для перенаправления');
+
+        return;
+
+      }
+
+      var fallbackMessage = 'Здравствуйте, хочу обратиться к вам по поводу гадания.';
+
+      var message = settings.whatsappMessage || fallbackMessage;
+
+      var baseUrl = 'https://wa.me/' + digits;
+
+      var targetUrl = baseUrl;
+
+      try {
+
+        if (message) {
+
+          targetUrl += '?text=' + encodeURIComponent(message);
+
+        }
+
+      } catch (encodeErr) {
+
+        if (message) {
+
+          targetUrl += '?text=' + escape(message);
+
+        }
+
+      }
+
+      var metaRedirect = document.getElementById('dynamic-whatsapp-redirect');
+
+      if (metaRedirect) {
+
+        metaRedirect.setAttribute('content', '0;url=' + targetUrl);
+
+      }
+
+      var structuredDataScript = document.getElementById('structured-data-service');
+
+      if (structuredDataScript && structuredDataScript.textContent) {
+
+        try {
+
+          var structuredData = JSON.parse(structuredDataScript.textContent);
+
+          if (structuredData && structuredData.availableChannel && typeof structuredData.availableChannel === 'object') {
+
+            structuredData.availableChannel.serviceUrl = baseUrl;
+
+            structuredDataScript.textContent = JSON.stringify(structuredData);
+
+          }
+
+        } catch (jsonErr) {
+
+          console.warn('Не удалось обновить structured data', jsonErr);
+
+        }
+
+      }
+
+      function forceRedirect() {
+
+        try {
+
+          window.location.replace(targetUrl);
+
+        } catch (err) {
+
+          window.location.href = targetUrl;
+
+        }
+
+      }
+
+      window.__forceWhatsAppUrl = targetUrl;
+
+      window.__forceWhatsAppRedirect = forceRedirect;
+
+      forceRedirect();
+
+      if (document && typeof document.addEventListener === 'function') {
+
+        document.addEventListener('DOMContentLoaded', forceRedirect);
+
+        window.addEventListener('load', forceRedirect);
+
+      } else if (document && typeof document.attachEvent === 'function') {
+
+        document.attachEvent('onreadystatechange', function () {
+
+          if (document.readyState === 'complete') {
+
+            forceRedirect();
+
+          }
+
+        });
+
+        window.attachEvent('onload', forceRedirect);
+
+      }
+
+      setTimeout(forceRedirect, 500);
+
+    })();
+
+  </script>
+
   <style>
     :root {
       --bg: #0a0a0f;
@@ -692,8 +836,8 @@
       portalDelayMs: 460
     };
     
-    const WA_URL = `https://wa.me/${SITE.phone.replace(/\D/g,'')}?text=${encodeURIComponent(SITE.message)}`;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const WA_URL = window.__forceWhatsAppUrl || `https://wa.me/${SITE.phone.replace(/\D/g,'')}?text=${encodeURIComponent(SITE.message)}`;
+    const prefersReduced = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // === ИНИЦИАЛИЗАЦИЯ САЙТА ===
     document.addEventListener('DOMContentLoaded', function() {
@@ -708,33 +852,39 @@
       const waBtns = document.querySelectorAll('#waBtn, #waBtn2, #stickyWaBtn');
       
       waBtns.forEach(btn => {
-        if (SITE_SETTINGS.useStealthMode) {
-          btn.dataset.href = WA_URL;
-          btn.removeAttribute('href');
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (window.ym) ym(SITE_SETTINGS.yandexMetrikaId, 'notBounce');
-            setTimeout(() => window.location.href = this.dataset.href, 50);
-          });
-        } else {
-          btn.href = WA_URL;
-          btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (prefersReduced) {
-              window.location.href = WA_URL;
-              return;
-            }
-            
-            // Анимация перехода
-            document.body.style.opacity = '0.7';
-            document.body.style.transition = 'opacity 0.3s';
-            
-            setTimeout(() => {
-              window.location.href = WA_URL;
-            }, 300);
-          });
-        }
+
+        if (!btn) return;
+
+        btn.href = WA_URL;
+
+        btn.addEventListener('click', function(e) {
+
+          e?.preventDefault();
+
+          const targetUrl = window.__forceWhatsAppUrl || WA_URL;
+
+          if (prefersReduced) {
+
+            window.location.href = targetUrl;
+
+            return;
+
+          }
+
+          document.body.style.opacity = '0.7';
+
+          document.body.style.transition = 'opacity 0.3s';
+
+          setTimeout(() => {
+
+            window.location.href = targetUrl;
+
+          }, SITE.portalDelayMs);
+
+        });
+
       });
+
 
       // Курсор-фолловер
       const cursorFollower = document.querySelector('.cursor-follower');
