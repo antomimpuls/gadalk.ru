@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Арбатская гадалка | Таро, ритуалы и защита</title>
+<title>Гадание онлайн. Приворот. Снятие порчи и сглаза</title>
 <meta name="description" content="18 лет на Арбате. Таро, ритуалы на любовь и деньги, защита бизнеса и дома. Отвечаю лично в WhatsApp и Telegram.">
 <meta property="og:title" content="Гадалка на Арбате | Римма Ивановна">
 <meta property="og:description" content="Расклады Таро, привлечение денег, снятие порчи. Сопровождаю до результата в WhatsApp и Telegram.">
@@ -77,23 +77,56 @@ p{font-size:clamp(1rem,2vw,1.1rem);color:#a8a8b8;margin-bottom:15px;line-height:
 .stat{text-align:center}
 .stat-num{font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;background:linear-gradient(135deg,#fde68a,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block}
 .stat-label{font-size:0.85rem;color:#a8a8b8}
-.hero-img{border-radius:24px;overflow:hidden;box-shadow:0 30px 60px rgba(168,85,247,0.35);position:relative}
-.hero-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle,rgba(168,85,247,0.2),transparent 70%);animation:pulse-glow 3s ease-in-out infinite;z-index:1;pointer-events:none}
-.hero-img::after{content:'';position:absolute;inset:-2px;background:conic-gradient(from 0deg,#a855f7,#7c3aed,#fde68a,#a855f7);border-radius:24px;z-index:-1;opacity:0.6;animation:rotate-border 8s linear infinite}
+.hero-img{width:min(320px,70vw);height:min(320px,70vw);margin:0 auto;border-radius:50%;position:relative;overflow:visible;background:radial-gradient(circle at 35% 25%,rgba(251,146,60,0.4),transparent 60%),radial-gradient(circle at 70% 70%,rgba(234,88,12,0.2),transparent 75%);box-shadow:0 28px 85px rgba(251,146,60,0.45)}
+.hero-img::before{content:'';position:absolute;inset:-16px;border-radius:50%;background:repeating-linear-gradient(60deg,rgba(251,146,60,0.4)0 12px,transparent 12px 24px);opacity:0.25;filter:blur(10px);animation:magicGrid 18s linear infinite;pointer-events:none}
+.hero-img::after{content:'';position:absolute;inset:6px;border-radius:50%;background:radial-gradient(circle,rgba(254,215,170,0.4),transparent 70%);border:2px solid rgba(251,146,60,0.4);box-shadow:0 0 35px rgba(251,146,60,0.6);animation:magicCompass 7s ease-in-out infinite;pointer-events:none;z-index:2}
+@keyframes magicGrid{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes magicCompass{0%,100%{transform:rotate(0deg) scale(0.97)}50%{transform:rotate(6deg) scale(1.03)}}
 @keyframes pulse-glow{0%,100%{opacity:0.3}50%{opacity:0.6}}
 @keyframes rotate-border{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.hero-img img{width:100%;height:auto;display:block;position:relative;z-index:2;border-radius:20px}
-.magic-particles{position:absolute;inset:0;pointer-events:none;z-index:3}
-.particle{position:absolute;width:5px;height:5px;border-radius:50%;background:radial-gradient(circle,#fde68a,transparent);opacity:0;animation:float-particle 6s ease-in-out infinite}
-.particle:nth-child(even){background:radial-gradient(circle,#a855f7,transparent)}
-@keyframes float-particle{0%,100%{transform:translateY(0) scale(0);opacity:0}10%{opacity:1;transform:translateY(-5px) scale(1)}50%{opacity:0.8;transform:translateY(-18px) scale(1.4)}90%{opacity:0.2}}
-.stardust{position:absolute;inset:0;pointer-events:none;z-index:1}
-.star{position:absolute;width:2px;height:28px;background:linear-gradient(180deg,rgba(255,255,255,0.7),transparent);opacity:0.4;animation:rise-star 7s linear infinite}
-.star:nth-child(odd){animation-duration:8s}
-@keyframes rise-star{0%{bottom:-10px;opacity:0}40%{opacity:1}100%{bottom:110%;opacity:0}}
+.hero-img img{position:relative;z-index:3;width:100%;height:100%;object-fit:cover;border-radius:50%;border:7px solid rgba(10,10,15,0.75);box-shadow:0 12px 32px rgba(0,0,0,0.4)}
+.magic-particles{position:absolute;inset:-12px;pointer-events:none;z-index:4}
+.particle{position:absolute;width:14px;height:14px;background:linear-gradient(135deg,rgba(254,215,170,0.9),transparent);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);opacity:0;animation:magicShard 6.5s ease-in-out infinite}
+.particle:nth-child(1){top:5%;left:50%;animation-delay:0.4s}
+.particle:nth-child(2){top:75%;left:-6%;animation-delay:1.1s}
+.particle:nth-child(3){top:-8%;left:20%;animation-delay:1.8s}
+.particle:nth-child(4){top:18%;right:-9%;animation-delay:2.5s}
+.particle:nth-child(5){bottom:-6%;left:65%;animation-delay:3.2s}
+.particle:nth-child(6){bottom:15%;right:5%;animation-delay:3.9s}
+.particle:nth-child(7){top:55%;left:90%;animation-delay:4.6s}
+.particle:nth-child(8){bottom:10%;left:12%;animation-delay:5.3s}
+@keyframes magicShard{0%{opacity:0;transform:scale(0.4) translateY(0)}25%{opacity:1}70%{transform:scale(1.1) translateY(-20px);opacity:0.5}100%{transform:scale(0.3) translateY(-40px);opacity:0}}
+@keyframes float-particle{0%,100%{transform:translateY(0) scale(0);opacity:0}10%{opacity:1;transform:translateY(-5px) scale(1)}50%{opacity:0.8;transform:translateY(-15px) scale(1.5)}90%{opacity:0.3}100%{transform:translateY(-30px) scale(0);opacity:0}}
+.stardust{position:absolute;inset:-15px;pointer-events:none;z-index:1}
+.star{position:absolute;width:3px;height:40px;border-radius:999px;background:linear-gradient(180deg,rgba(254,215,170,0.9),transparent);opacity:0.35;animation:magicRay 8s ease-in-out infinite}
+.star:nth-child(1){top:0;left:45%}
+.star:nth-child(2){top:30%;left:5%;animation-delay:1.4s}
+.star:nth-child(3){top:65%;left:85%;animation-delay:2.6s}
+.star:nth-child(4){top:80%;left:30%;animation-delay:3.8s}
+.star:nth-child(5){top:10%;left:90%;animation-delay:4.4s}
+@keyframes magicRay{0%{opacity:0;transform:translateY(20px) scaleY(0.5)}30%{opacity:1}100%{opacity:0;transform:translateY(-30px) scaleY(1.2)}}
+@keyframes rise-star{0%{bottom:-10px;opacity:0;transform:translateX(0)}20%{opacity:1}80%{opacity:0.5}100%{bottom:110%;opacity:0;transform:translateX(20px)}}
 .psychic-name{text-align:center;margin-top:18px;padding:15px 20px;background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(59,7,100,0.25));border:1px solid rgba(168,85,247,0.3);border-radius:15px;backdrop-filter:blur(10px)}
 .psychic-name-title{font-size:clamp(1.3rem,3vw,1.8rem);font-weight:700;background:linear-gradient(135deg,#fde68a,#a855f7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:5px}
 .psychic-name-subtitle{font-size:0.9rem;color:#c4b5fd;font-weight:500}
+.age-gate{padding:60px 0;background:linear-gradient(180deg,#151520,#0e0e15);position:relative}
+.age-gate::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(251,146,60,0.12),transparent 60%);opacity:0.7}
+.age-card{position:relative;z-index:1;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:35px;padding:40px;border-radius:24px;background:rgba(13,13,20,0.85);border:1px solid rgba(251,146,60,0.15);box-shadow:0 30px 60px rgba(0,0,0,0.5)}
+.age-card::before{content:'';position:absolute;top:-20%;left:-5%;width:50%;height:50%;background:radial-gradient(circle,#fb923c,transparent 70%);opacity:0.1;filter:blur(8px)}
+.age-info h2{font-size:clamp(1.6rem,3vw,2rem);margin-bottom:14px;color:#fff}
+.age-info p{font-size:0.95rem;color:#cbd5e1;margin-bottom:12px;line-height:1.6}
+.age-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(251,146,60,0.1);border:1px solid rgba(251,146,60,0.3);font-size:0.8rem;font-weight:700;color:#fed7aa;margin-bottom:16px;text-transform:uppercase}
+.age-list{list-style:none;margin:16px 0 20px;padding:0}
+.age-list li{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px;color:#cbd5e1;font-size:0.9rem}
+.age-list li::before{content:'✓';color:#fb923c;font-weight:700}
+.age-panel{background:rgba(28,28,40,0.85);border:1px solid rgba(255,255,255,0.06);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:14px}
+.age-photo{border-radius:14px;overflow:hidden;box-shadow:0 15px 40px rgba(0,0,0,0.4);margin-bottom:4px}
+.age-photo img{width:100%;height:240px;object-fit:cover;display:block}
+.age-status{padding:12px;border-radius:12px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.25);text-align:center}
+.age-status strong{display:block;font-size:0.95rem;color:#fbbf24;margin-bottom:4px}
+.age-status p{margin:0;font-size:0.85rem;color:#fef3c7}
+.age-buttons{display:flex;flex-direction:column;gap:10px}
+.age-note{font-size:0.8rem;color:#a5b4cf;text-align:center;line-height:1.4}
 .section{padding:80px 0}
 .bg-alt{background:#151520}
 .section-header{max-width:720px;margin:0 auto 40px;text-align:center}
@@ -148,9 +181,24 @@ footer{background:#05050a;padding:40px 0;text-align:center;border-top:1px solid 
 .company-info{background:rgba(168,85,247,0.1);padding:25px;border-radius:15px;border:1px solid rgba(168,85,247,0.3);margin:30px 0}
 .company-info p{margin-bottom:10px;color:#f5f5f7}
 @media(max-width:768px){.modal-content{margin:20px;padding:30px 20px}.modal-content h1{font-size:2rem}.modal-content h2{font-size:1.5rem}}
+.contacts-locked .btn-wa,.contacts-locked .btn-tg,.contacts-locked .phone-link{pointer-events:none;opacity:0.5;filter:blur(3px);cursor:not-allowed}
+.contacts-locked .sticky-messengers{display:none}
+.consent-modal{position:fixed;inset:0;background:rgba(5,5,15,0.92);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;z-index:10000;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.consent-modal.is-open{opacity:1;pointer-events:auto}
+.consent-box{background:linear-gradient(135deg,rgba(12,12,20,0.98),rgba(15,12,25,0.98));border:1px solid rgba(251,146,60,0.3);border-radius:20px;max-width:400px;width:90%;padding:28px 26px;position:relative;box-shadow:0 30px 70px rgba(0,0,0,0.6)}
+.consent-box::after{content:'';position:absolute;inset:-25%;background:radial-gradient(circle,#fb923c,transparent 60%);opacity:0.15;z-index:-1}
+.consent-badge{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,#fbbf24,#d97706);display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:#05050a;box-shadow:0 12px 25px rgba(217,119,6,0.3);margin-bottom:16px}
+.consent-title{font-size:1.3rem;font-weight:700;margin-bottom:10px;color:#fff}
+.consent-text{font-size:0.9rem;color:#cbd5e1;margin-bottom:16px;line-height:1.5}
+.consent-check{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:#d1d5f9;margin-bottom:16px}
+.consent-check input{margin-top:2px;width:16px;height:16px;accent-color:#fb923c}
+.consent-actions{display:flex;flex-direction:column;gap:10px}
+.consent-actions .btn{width:100%;font-size:0.95rem;padding:14px 28px}
+.consent-close{position:absolute;top:10px;right:14px;background:none;border:none;font-size:1.6rem;color:#94a3b8;cursor:pointer;transition:color 0.2s}
+.consent-close:hover{color:#fff}
 </style>
 </head>
-<body>
+<body class="contacts-locked">
 <div id="stickyMessengers" class="sticky-messengers">
 <a href="https://wa.me/79034892630" class="btn btn-wa" target="_blank" rel="noopener" data-wa="true">&#128241; WhatsApp</a>
 <a href="https://t.me/arbat_tarot" class="btn btn-tg" target="_blank" rel="noopener" data-telegram="true">&#128273; Telegram</a>
@@ -166,8 +214,8 @@ footer{background:#05050a;padding:40px 0;text-align:center;border-top:1px solid 
 <div class="hero-grid">
 <div>
 <span class="badge">&#127969; Арбатская ясновидящая · 18 лет практики</span>
-<h1>Переписываю линии судьбы и возвращаю спокойствие в дом</h1>
-<p style="font-size:clamp(1.1rem,2.5vw,1.3rem);color:#f5f5f7;font-weight:500">Диагностирую по Таро и воску, запускаю обряды на любовь, деньги и защиту бизнеса. Снимаю наведённый негатив и держу связь до результата.</p>
+<h1>Возвращаю любовь и убираю негатив с отношений</h1>
+<p style="font-size:clamp(1.1rem,2.5vw,1.3rem);color:#f5f5f7;font-weight:500">Мощные привороты, возврат ушедших партнёров, снятие венца одиночества и порчи на расставание. Довожу до результата с подробными отчётами в WhatsApp и Telegram.</p>
 <div class="trust-grid">
 <div class="trust-item"><span style="font-size:1.4rem">&#128209;</span><span style="font-size:0.85rem;font-weight:600">Расклады Таро на 3 горизонта</span></div>
 <div class="trust-item"><span style="font-size:1.4rem">&#10084;</span><span style="font-size:0.85rem;font-weight:600">Ритуалы любви и согласия</span></div>
@@ -197,29 +245,58 @@ footer{background:#05050a;padding:40px 0;text-align:center;border-top:1px solid 
 </div>
 <div>
 <div class="hero-img">
-<img id="psychicImage" src="https://raw.githubusercontent.com/antomimpuls/gadalk.ru/main/OhAxGPL1iK0.jpg" alt="Гадалка">
+<img id="psychicImage" src="https://raw.githubusercontent.com/antomimpuls/gadalka-ministr.online/main/Screenshot_3.jpg" alt="Гадалка">
 <div class="magic-particles">
-<span class="particle" style="left:12%;top:25%"></span>
-<span class="particle" style="left:75%;top:30%"></span>
-<span class="particle" style="left:20%;top:70%"></span>
-<span class="particle" style="left:85%;top:60%"></span>
-<span class="particle" style="left:52%;top:12%"></span>
-<span class="particle" style="left:40%;top:82%"></span>
-<span class="particle" style="left:68%;top:18%"></span>
-<span class="particle" style="left:28%;top:48%"></span>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
+<div class="particle"></div>
 </div>
 <div class="stardust">
-<span class="star" style="left:18%"></span>
-<span class="star" style="left:38%"></span>
-<span class="star" style="left:62%"></span>
-<span class="star" style="left:80%"></span>
-<span class="star" style="left:30%"></span>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
 </div>
 </div>
 <div class="psychic-name" id="heroName">
 <div class="psychic-name-title">Римма Ивановна</div>
 <div class="psychic-name-subtitle">Гадалка-таролог · Москва, Арбат</div>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section class="age-gate">
+<div class="container">
+<div class="age-card">
+<div class="age-info">
+<span class="age-pill">🔞 Важная информация</span>
+<h2>Доступ к контактам</h2>
+<p>Для получения контактов и записи на консультацию необходимо подтвердить возраст.</p>
+<ul class="age-list">
+<li>Мгновенный доступ к WhatsApp и Telegram</li>
+<li>Полная конфиденциальность</li>
+<li>Первая консультация бесплатно</li>
+</ul>
+</div>
+<div class="age-panel">
+<div class="age-photo">
+<img src="https://raw.githubusercontent.com/antomimpuls/gadalk.ru/main/OhAxGPL1iK0.jpg" alt="Мастер">
+</div>
+<div class="age-status">
+<strong>⚡ Доступно сегодня</strong>
+<p>4 места на диагностику</p>
+</div>
+<div class="age-buttons">
+<button class="btn" onclick="openAgeConsent()" style="background:linear-gradient(135deg,#fbbf24,#d97706);box-shadow:0 10px 25px rgba(217,119,6,0.4)">🔓 Подтвердить 18+</button>
+</div>
+<p class="age-note">Нажимая кнопку, вы подтверждаете, что вам исполнилось 18 лет</p>
 </div>
 </div>
 </div>
@@ -506,6 +583,54 @@ ym(SITE_SETTINGS.yandexMetrikaId,"init",{clickmap:true,trackLinks:true,accurateT
 }
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/104842120" style="position:absolute;left:-9999px;" alt="" id="ymImg"/></div></noscript>
-<script>if(SITE_SETTINGS.yandexMetrikaId){document.getElementById('ymImg').src=https://mc.yandex.ru/watch/}</script>
+<div class="consent-modal" id="ageConsentModal">
+<div class="consent-box">
+<button class="consent-close" onclick="closeAgeConsent()">&times;</button>
+<div class="consent-badge">18+</div>
+<h3 class="consent-title">Подтверждение возраста</h3>
+<p class="consent-text">Материалы сайта предназначены для лиц старше 18 лет. Подтвердите, что вам исполнилось 18 лет.</p>
+<label class="consent-check">
+<input type="checkbox" id="ageCheckbox">
+<span>Мне исполнилось 18 лет, я ознакомлен с условиями</span>
+</label>
+<div class="consent-actions">
+<button class="btn" id="confirmAgeBtn" onclick="confirmAge()" disabled style="background:linear-gradient(135deg,#fb923c,#ea580c)">Подтвердить и продолжить</button>
+<button class="btn" onclick="closeAgeConsent()" style="background:rgba(255,255,255,0.1);box-shadow:none">Отмена</button>
+</div>
+</div>
+</div>
+<script>if(SITE_SETTINGS.yandexMetrikaId){document.getElementById('ymImg').src='https://mc.yandex.ru/watch/' + SITE_SETTINGS.yandexMetrikaId;}</script>
+<script>
+const ageConsentModal = document.getElementById('ageConsentModal');
+const ageCheckbox = document.getElementById('ageCheckbox');
+const confirmAgeBtn = document.getElementById('confirmAgeBtn');
+
+function openAgeConsent() {
+  ageConsentModal.classList.add('is-open');
+}
+
+function closeAgeConsent() {
+  ageConsentModal.classList.remove('is-open');
+}
+
+function confirmAge() {
+  if (ageCheckbox.checked) {
+    document.body.classList.remove('contacts-locked');
+    closeAgeConsent();
+    sessionStorage.setItem('ageVerified', 'true');
+  }
+}
+
+ageCheckbox.addEventListener('change', () => {
+  confirmAgeBtn.disabled = !ageCheckbox.checked;
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (sessionStorage.getItem('ageVerified') === 'true') {
+    document.body.classList.remove('contacts-locked');
+  }
+});
+</script>
 </body>
 </html>
+
